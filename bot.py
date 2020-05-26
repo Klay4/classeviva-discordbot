@@ -260,9 +260,9 @@ async def oggi(ctx):
 			lezioni = filef.read()
 
 	if noggetti == 0:
-		await botcompiti.send_message(ctx.message.channel, ":tada: Nessuna lezione oggi")
+		await ctx.channel. send(":tada: Nessuna lezione oggi")
 	else:			
-		await botcompiti.send_message(ctx.message.channel, lezioni)
+		await ctx.channel. send(lezioni)
 
 
 @asyncio.coroutine
@@ -343,9 +343,9 @@ async def compiti(ctx):
 	if lf > 3:
 		with open('data/compiti.txt', 'r+') as filec:
 			compitistr = filec.read()
-			await botcompiti.send_message(ctx.message.channel, compitistr)
+			await ctx.channel. send(compitistr)
 	else:
-		await botcompiti.send_message(ctx.message.channel, ":tada: Nessun compito per domani")
+		await ctx.channel. send(":tada: Nessun compito per domani")
 
 
 
@@ -423,21 +423,21 @@ async def verifiche(ctx):
 				coggetti = coggetti+1
 
 		except IndexError:
-			await botcompiti.send_message(ctx.message.channel, "uhm... questo non doveva succedere.")
+			await ctx.channel. send("uhm... questo non doveva succedere.")
 
 
 	if nver == 0:
-		await botcompiti.send_message(ctx.message.channel, ":tada: Nessuna verifica questa settimana")
+		await ctx.channel. send(":tada: Nessuna verifica questa settimana")
 
 	elif nver == 1:
 		with open('data/verifiche.txt', 'r+') as filev:
 			compitistr = filev.read()
-			await botcompiti.send_message(ctx.message.channel, ":information_source: Questa settimana hai " + str(nver) + " verifica:\n\n" + compitistr)
+			await ctx.channel. send(":information_source: Questa settimana hai " + str(nver) + " verifica:\n\n" + compitistr)
 
 	else:
 		with open('data/verifiche.txt', 'r+') as filev:
 			compitistr = filev.read()
-			await botcompiti.send_message(ctx.message.channel, ":information_source: Questa settimana hai " + str(nver) + " verifiche:\n\n" + compitistr)
+			await ctx.channel. send(":information_source: Questa settimana hai " + str(nver) + " verifiche:\n\n" + compitistr)
 
 
 def log(ora, utente, comando):
